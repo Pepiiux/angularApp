@@ -1,0 +1,13 @@
+.image-thumbail {
+    height: 240px;
+    object-fit: contain;
+    background-color: whitesmoke;
+}
+
+.add-button {
+    color: green;
+}
+
+.remove-button {
+    color: red;
+}

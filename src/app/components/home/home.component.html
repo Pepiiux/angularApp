@@ -1,0 +1,42 @@
+<section>
+    <mat-form-field class="mat-form-field">
+        <mat-icon matSuffix>search</mat-icon>
+        <input matInput type="search" placeholder="Search books by title, authors or keyword" (keyup)="filterBooks(filter.value)" #filter>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Select language</mat-label>
+        <mat-select [(value)]="bookLanguage">
+            @for (language of getAllLanguages(); track language) {
+                <mat-option value="{{language}}">{{language}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Book type</mat-label>
+        <mat-select [(value)]="bookTypeFilter">
+            <mat-option value="all">All</mat-option>
+            <mat-option value="books">Books</mat-option>
+            <mat-option value="magazines">Magazines</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Order By</mat-label>
+        <mat-select [(value)]="orderBy">
+            <mat-option value="newest">Newest</mat-option>
+            <mat-option value="relevance">Relevance</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="applyFilters()">APPLY FILTERS</button>
+    <button mat-button (click)="resetFilters()">RESET FILTERS</button>
+</section>
+
+<section class="results">
+    <app-book-card 
+        *ngFor="let book of filteredBooksList" 
+        [book]="book"
+    ></app-book-card>
+</section>

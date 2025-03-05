@@ -1,0 +1,27 @@
+<mat-card class="example-card" appearance="outlined">
+
+    <img mat-card-image src={{book.volumeInfo.imageLinks.smallThumbnail}} alt="Book cover image" class="image-thumbail">
+
+    <mat-card-header>
+        <mat-card-title>{{ book.volumeInfo.title }}</mat-card-title>
+        <mat-card-subtitle colo>{{ book.volumeInfo.authors }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-chip-set class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+            @for (category of book.volumeInfo.categories; track category ) {
+                <mat-chip>{{category}}</mat-chip>
+            }
+        </mat-chip-set>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button [routerLink]="['/book-details', book.id]">VIEW DETAILS</button>
+        @if(!isFavorite) {
+            <button mat-button (click)="addToMyFavorites()" class="add-button">ADD TO FAVORITES</button>
+        } @else {
+            <button mat-button (click)="removeFromMyFavorites()" class="remove-button">REMOVE FROM FAVORITES</button>
+        }
+    </mat-card-actions>
+    
+</mat-card>

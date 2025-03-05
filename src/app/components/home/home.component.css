@@ -1,0 +1,16 @@
+.results {
+  display: grid;
+  column-gap: 14px;
+  row-gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+mat-form-field {
+  padding: 10px 10px 0px 0px;
+}

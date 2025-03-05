@@ -1,0 +1,48 @@
+<section>
+    <h3 class="title">Book Details</h3>
+    <mat-list>
+        <mat-list-item>
+            <span matListItemTitle>Title</span>
+            <span matListItemLine>{{ book?.volumeInfo?.title }}</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Description</span>
+            <span matListItemLine>{{ book?.volumeInfo?.description }}</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Author(s)</span>
+            <span matListItemLine>{{ book?.volumeInfo?.authors }}</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Publisher/Release Date</span>
+            <span matListItemLine>{{ book?.volumeInfo?.publisher }} - {{ book?.volumeInfo?.publishedDate }}</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Pages</span>
+            <span matListItemLine>{{ book?.volumeInfo?.pageCount }} pages</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Category</span>
+            <span matListItemLine>{{ book?.volumeInfo?.categories }}</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Preview Link</span>
+            <span matListItemLine>{{ book?.volumeInfo?.previewLink }}</span>
+        </mat-list-item>
+        <mat-list-item>
+            <span matListItemTitle>Sale status</span>
+            @if (book?.saleInfo?.saleability == "FOR_SALE") {
+                <span matListItemLine>AVAILABLE</span>
+            }
+            @if (book?.saleInfo?.saleability == "NOT_FOR_SALE") {
+                <span matListItemLine>NOT AVAILABLE</span>
+            }
+        </mat-list-item>
+        @if (book?.saleInfo?.saleability == "FOR_SALE") {
+            <mat-list-item>
+                <span matListItemTitle>Price</span>
+                <span matListItemLine>{{ book?.saleInfo?.retailPrice?.amount }} {{ book?.saleInfo?.retailPrice?.currencyCode }}</span>
+            </mat-list-item>
+        }
+    </mat-list>
+</section>
