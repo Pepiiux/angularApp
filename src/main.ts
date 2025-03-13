@@ -1,10 +1,14 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
-import routeConfig from './app/routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch } from "@angular/common/http";
+import { bootstrapApplication } from "@angular/platform-browser";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
+import { provideRouter } from "@angular/router";
+import { AppComponent } from "./app/app.component";
+import routeConfig from "./app/routes";
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routeConfig), provideAnimationsAsync(), provideHttpClient(withFetch()),],
+  providers: [
+    provideRouter(routeConfig),
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch()),
+  ],
 }).catch((err) => console.error(err));
